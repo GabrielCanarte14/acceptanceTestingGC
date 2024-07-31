@@ -1,3 +1,5 @@
+# features/steps/todo_list_steps.py
+
 from behave import given, when, then
 from todo_list import ToDoList
 
@@ -8,6 +10,10 @@ def step_given_to_do_list_empty(context):
 @when('the user adds a task "{task}"')
 def step_when_user_adds_task(context, task):
     context.todo_list.add_task(task)
+
+@when('the user adds multiple tasks "{tasks}"')
+def step_when_user_adds_multiple_tasks(context, tasks):
+    context.todo_list.add_multiple_tasks(tasks)
 
 @then('the to-do list should contain "{task}"')
 def step_then_to_do_list_should_contain_task(context, task):
